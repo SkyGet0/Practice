@@ -23,7 +23,7 @@ class Program
             stringBuilder.Append($"Ошибка. Количество лет (years) должно быть положительным числом. Получено: {years}.\n");
         }
 
-        // Проврка годовой процентной ставки.
+        // Проверка годовой процентной ставки.
         if (interestRate <= 0)
         {
             stringBuilder.Append($"Ошибка. Годовая процентная ставка (interestRate) должна быть положительная. Получено: {interestRate}.\n");
@@ -33,7 +33,7 @@ class Program
     }
 
     /// <summary>
-    /// Расчитывает сложный процент для одного года по формуле:
+    /// Рассчитывает сложный процент для одного года по формуле:
     /// S = P * (1 + r/100)^t
     /// где P - это начальный вклад, r - годовая процентная ставка, t - количество лет. 
     /// </summary>
@@ -51,7 +51,7 @@ class Program
     {
         string validationErrors = ValidateInputData(initialDeposit, years, interestRate);
 
-        // Если нашлись ошибки при валадации, то эти ошибки возвращаются.
+        // Если нашлись ошибки при валидации, то эти ошибки возвращаются.
         if (!string.IsNullOrEmpty(validationErrors))
         {
             return validationErrors;
