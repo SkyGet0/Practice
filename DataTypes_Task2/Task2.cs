@@ -10,13 +10,13 @@
     { 
         if (height <= 0)
         {
-            errorMessage = $"Ошибка. Высота должна быть больше нуля. Получено {height}.\n";
+            errorMessage = $"Ошибка. Высота должна быть положительной. Получено {height}.\n";
             return false;
         }
 
         if (height % 2 == 0)
         {
-            errorMessage = $"Ошибка. Высота должна быть нечетным числом. Получено {height}.\n";
+            errorMessage = $"Ошибка. Высота должна быть нечетной. Получено {height}.\n";
             return false;
         }
 
