@@ -64,8 +64,8 @@
         Console.Write("Введите высоту ромба: ");
         string? input = Console.ReadLine();
 
-        int height;
-        bool validInput = int.TryParse(input, out height);
+        int N;
+        bool validInput = int.TryParse(input, out N);
 
         Console.WriteLine();
 
@@ -76,13 +76,13 @@
             return;
         }
 
-        if (!IsValidHeight(height, out string error))
+        if (!IsValidHeight(N, out string error))
         {
             Console.WriteLine(error);
             return;
         }
 
         // Отрисовка ромба.
-        DrawRhomb(height);
+        DrawRhomb(N);
     }
 }
