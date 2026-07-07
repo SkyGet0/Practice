@@ -13,7 +13,7 @@
             errorMessage = $"Ошибка. Высота должна быть положительной. Получено {height}.\n";
             return false;
         }
-
+        
         if (height % 2 == 0)
         {
             errorMessage = $"Ошибка. Высота должна быть нечетной. Получено {height}.\n";
@@ -38,7 +38,7 @@
             // Количество пробелов в текущей строке.
             int spaces = Math.Abs(middle - i);
 
-            // Количество символов в текущей строке.
+            // Количество символов (X) в текущей строке.
             int symbols = height - spaces * 2;
 
             Console.Write(new string(' ', spaces));
@@ -70,12 +70,19 @@
         Console.WriteLine();
 
         // Проверка значения высоты.
+        if (!validInput)
+        {
+            Console.WriteLine("Ошибка преобразования. Высота должна быть числом.");
+            return;
+        }
+
         if (!IsValidHeight(height, out string error))
         {
             Console.WriteLine(error);
             return;
         }
 
+        // Отрисовка ромба.
         DrawRhomb(height);
     }
 }
