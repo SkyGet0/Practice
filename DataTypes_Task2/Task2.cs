@@ -39,6 +39,7 @@
             int spaces = Math.Abs(middle - i);
 
             // Количество символов (X) в текущей строке.
+            // Количество пробелов умножаетя на 2, так как пробелы есть с обеих сторон.
             int symbols = height - spaces * 2;
 
             Console.Write(new string(' ', spaces));
