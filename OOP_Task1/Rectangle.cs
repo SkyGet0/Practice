@@ -22,19 +22,19 @@ namespace OOP_Task1
         {
             X = x;
             Y = y;
-            Width = ValidateSide(width);
-            Height = ValidateSide(height);
+            Width = ValidateSide(width, "Ширина");
+            Height = ValidateSide(height, "Высота");
         }
 
         // Проверка значения стороны прямоугольника.
-        private static int ValidateSide(int side)
+        private static int ValidateSide(int value, string parameterName)
         {
-            if (side <= 0)
+            if (value <= 0)
             {
-                throw new ArgumentOutOfRangeException("Сторона должна быть положительным числом.");
+                throw new ArgumentOutOfRangeException($"{parameterName} должна быть положительным числом.");
             }
 
-            return side;
+            return value;
         }
 
         // Расчет периметра прямоугольника.
