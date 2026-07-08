@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="DataTypes_Task1/DataTypes_Task1.csproj" />
   <Project Path="DataTypes_Task2/DataTypes_Task2.csproj" />
+  <Project Path="OOP_Task1/OOP_Task1.csproj" Id="ada467be-be4b-4132-8f21-09b772f79af1" />
 </Solution>
