@@ -4,17 +4,38 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Прямоугольник с верными данными.
-        Rectangle rectangle = new Rectangle(0, 0, 10, 5);
+        Console.WriteLine("Создаем прямоугольник.");
 
-        // Прямоугольник с неверными данными. Должно выбросить исключение.
-        // Rectangle rectangle2 = new Rectangle(0, 0, 0, 5);
-        // Console.WriteLine(rectangle2.CalculateArea());
+        int x = ReadIntValue("Введите координату X: ");
+        int y = ReadIntValue("Введите координату Y: ");
+        int width = ReadIntValue("Введите ширину: ");
+        int height = ReadIntValue("Введите высоту: ");
 
-        Console.WriteLine($"Создан прямоугольнк: {nameof(rectangle)}.");
-        Console.WriteLine($"Координаты левой верхней вершины: ({rectangle.X}, {rectangle.Y}).");
-        Console.WriteLine($"Высота = {rectangle.Height}. Ширина = {rectangle.Width}.");
-        Console.WriteLine($"Площадь {nameof(rectangle)} равна {rectangle.CalculateArea()}.");
-        Console.WriteLine($"Периметр {nameof(rectangle)} равен {rectangle.CalculatePerimeter()}.");
+        Console.WriteLine();
+
+        try
+        {
+            Rectangle rectangle = new Rectangle(x, y, width, height);
+            Console.WriteLine($"Создан прямоугольнк: {nameof(rectangle)}.");
+            Console.WriteLine($"Координаты левой верхней вершины: ({rectangle.X}, {rectangle.Y}).");
+            Console.WriteLine($"Высота = {rectangle.Height}. Ширина = {rectangle.Width}.");
+            Console.WriteLine($"Площадь {nameof(rectangle)} равна {rectangle.CalculateArea()}.");
+            Console.WriteLine($"Периметр {nameof(rectangle)} равен {rectangle.CalculatePerimeter()}.");
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Console.WriteLine("Ошибка." + ex.Message);
+        }
+    }
+
+    static int ReadIntValue(string prompt)
+    {
+        int value;
+        do
+        {
+            Console.Write(prompt);
+        } while (!int.TryParse(Console.ReadLine(), out value));
+
+        return value;
     }
 }
