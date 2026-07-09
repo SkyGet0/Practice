@@ -44,9 +44,9 @@ namespace OOP_Task_2_3
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"Информация о продукте {this.Name}.");
             stringBuilder.AppendLine($"Производитель: {Manufacturer}.");
-            stringBuilder.AppendLine($"Цена: {Price:C}.");
-            stringBuilder.AppendLine($"Дата производства: {ProductionDate}.");
-            stringBuilder.AppendLine($"Срок годности: до {ExpirationDate}.");
+            stringBuilder.AppendLine($"Цена: {Price:F2} руб.");
+            stringBuilder.AppendLine($"Дата производства: {ProductionDate:d}.");
+            stringBuilder.AppendLine($"Срок годности: до {ExpirationDate:d}.");
 
             return stringBuilder.ToString();
         }
