@@ -1,1 +1,44 @@
-п»їConsole.WriteLine("Hello, World!");
+using OOP_Task_2_3;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите наименование товара: ");
+        string name = Console.ReadLine() ?? "Товар";
+
+        Console.WriteLine("Введите производителя товара: ");
+        string? manufacturer = Console.ReadLine() ?? "Производитель";
+
+        decimal price = ReadDecimalValue("Введите цену товара: ");
+
+        DateTime productionDate = ReadDateTimeValue("Введите дату производства товара (день.месяц.год): ");
+
+        DateTime expirationDate = ReadDateTimeValue("Введите срок годности товара (день.месяц.год): ");
+
+
+        Product product = new Product(name, manufacturer, price, productionDate, expirationDate);
+        Console.WriteLine(product.ToString());
+    }
+
+    static decimal ReadDecimalValue(string prompt)
+    {
+        decimal value;
+        do
+        {
+            Console.WriteLine(prompt);
+        } while (!decimal.TryParse(Console.ReadLine(), out value));
+
+        return value;
+    }
+
+    static DateTime ReadDateTimeValue(string prompt)
+    {
+        DateTime dateTime;
+        do
+        {
+            Console.WriteLine(prompt);
+        } while (!DateTime.TryParse(Console.ReadLine(), out dateTime));
+
+        return dateTime;
+    }
+}
