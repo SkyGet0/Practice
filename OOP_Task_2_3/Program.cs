@@ -3,10 +3,11 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Введите наименование товара: ");
+        // Ввод данных для товара.
+        Console.Write("Введите наименование товара: ");
         string name = Console.ReadLine() ?? "Товар";
 
-        Console.WriteLine("Введите производителя товара: ");
+        Console.Write("Введите производителя товара: ");
         string? manufacturer = Console.ReadLine() ?? "Производитель";
 
         decimal price = ReadDecimalValue("Введите цену товара: ");
@@ -15,7 +16,9 @@ class Program
 
         DateTime expirationDate = ReadDateTimeValue("Введите срок годности товара (день.месяц.год): ");
 
+        Console.WriteLine();
 
+        // Создание товара.
         Product product = new Product(name, manufacturer, price, productionDate, expirationDate);
         Console.WriteLine(product.ToString());
     }
@@ -25,7 +28,7 @@ class Program
         decimal value;
         do
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
         } while (!decimal.TryParse(Console.ReadLine(), out value));
 
         return value;
@@ -36,7 +39,7 @@ class Program
         DateTime dateTime;
         do
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
         } while (!DateTime.TryParse(Console.ReadLine(), out dateTime));
 
         return dateTime;
