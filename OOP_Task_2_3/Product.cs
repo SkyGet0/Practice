@@ -10,23 +10,27 @@ namespace OOP_Task_2_3
         public string Manufacturer { get; set; } = string.Empty;
         public decimal Price { get; private set; }
         public DateTime ProductionDate { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public TimeSpan ProductLifePeriod { get; set; }
+        public DateTime ExpirationDate
+        {
+            get => ProductionDate + ProductLifePeriod;
+        }
 
         /// <summary>
-        /// Создает товар с указанными параметрами.
+        /// Создает товар.
         /// </summary>
         /// <param name="name">Наименование товара.</param>
         /// <param name="manufacturer">Производитель товара.</param>
         /// <param name="price">Цена товара.</param>
         /// <param name="productionDate">Дата производства.</param>
-        /// <param name="expirationDate">Срок годности.</param>
-        public Product(string name, string manufacturer, decimal price, DateTime productionDate, DateTime expirationDate)
+        /// <param name="productLifePeriod">Срок годности (дней).</param>
+        public Product(string name, string manufacturer, decimal price, DateTime productionDate, TimeSpan productLifePeriod)
         {
             Name = name;
             Manufacturer = manufacturer;
             Price = ValidatePrice(price);
             ProductionDate = productionDate;
-            ExpirationDate = expirationDate;
+            ProductLifePeriod = productLifePeriod;
         }
 
         // Проверка значения цены товара.
@@ -39,6 +43,7 @@ namespace OOP_Task_2_3
             return price;
         }
 
+        // Вывод информации о товаре.
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
