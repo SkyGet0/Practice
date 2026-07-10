@@ -1,9 +1,10 @@
 using OOP_Task_2_3;
+using System.Runtime.Intrinsics.Arm;
 class Program
 {
     static void Main()
     {
-        // ¬вод данных дл€ товара.
+        // ¬вод данных дл€ товара без скидки.
         Console.Write("¬ведите наименование товара: ");
         string name = Console.ReadLine() ?? "“овар";
 
@@ -13,14 +14,19 @@ class Program
         decimal price = ReadDecimalValue("¬ведите цену товара: ");
 
         DateTime productionDate = ReadDateTimeValue("¬ведите дату производства товара (день.мес€ц.год): ");
-
-        DateTime expirationDate = ReadDateTimeValue("¬ведите срок годности товара (день.мес€ц.год): ");
+        
+        int days = ReadIntValue("¬ведите срок годности товара (дней): ");
 
         Console.WriteLine();
 
-        // —оздание товара.
-        Product product = new Product(name, manufacturer, price, productionDate, expirationDate);
+        // —оздание товара без скидки.
+        Product product = new Product(name, manufacturer, price, productionDate, TimeSpan.FromDays(days));
         Console.WriteLine(product.ToString());
+
+        // —оздание товара со скидкой через конструктор копировани€.
+        DiscountedProduct discountedProduct = new DiscountedProduct(product);
+        discountedProduct.ApplyDiscount(20);
+        Console.WriteLine(discountedProduct.ToString());
     }
 
     static decimal ReadDecimalValue(string prompt)
@@ -30,6 +36,17 @@ class Program
         {
             Console.Write(prompt);
         } while (!decimal.TryParse(Console.ReadLine(), out value));
+
+        return value;
+    }
+
+    static int ReadIntValue(string prompt)
+    {
+        int value;
+        do
+        {
+            Console.Write(prompt);
+        } while (!int.TryParse(Console.ReadLine(), out value));
 
         return value;
     }
