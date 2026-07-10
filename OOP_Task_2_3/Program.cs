@@ -1,6 +1,6 @@
 using OOP_Task_2_3;
 using System.Runtime.Intrinsics.Arm;
-class Program_Task_2_3
+class Program
 {
     static void Main()
     {
