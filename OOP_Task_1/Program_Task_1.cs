@@ -1,6 +1,6 @@
 ﻿using OOP_Task1;
 
-class Program
+class Program_Task_1
 {
     static void Main(string[] args)
     {
